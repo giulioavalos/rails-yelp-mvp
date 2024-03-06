@@ -1,0 +1,17 @@
+<div class="container mx-auto">
+  <h1 class="mt-4 mb-4">Restaurants</h1>
+  <%= link_to 'New restaurant', restaurants_new_path, class: 'btn btn-success' %>
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= restaurant.name %></h5>
+            <p class="card-text"><%= truncate(restaurant.category, length: 100) %></p>
+            <%= link_to 'See Details', restaurant_path(restaurant), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

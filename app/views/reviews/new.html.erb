@@ -1,0 +1,11 @@
+
+<div class="container mx-auto">
+  <h1 class="my-4">Add a new review</h1>
+
+  <%= simple_form_for [@restaurant, @review], html: { class: "form" } do |form| %>
+    <%= form.input :rating, collection: 0..5, label: "Rating", input_html: { class: "form-control" } %>
+    <%= form.input :content, label: "Content", input_html: { class: "form-control" } %>
+
+    <%= form.button :submit, "Submit", class: 'btn btn-primary' %>
+  <% end %>
+</div>

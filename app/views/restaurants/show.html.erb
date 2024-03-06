@@ -1,0 +1,31 @@
+<div class="container mx-auto">
+  <% if @restaurant %>
+    <h1 class="mt-4 mb-4"><%= @restaurant.name %></h1>
+ <%= link_to 'Back', restaurants_path, class: 'btn btn-secondary' %>
+    <div class="card-body">
+      <p class="card-text"><%= @restaurant.category %></p>
+      <p class="card-text"><%= @restaurant.phone_number %></p>
+      <p class="card-text"><%= @restaurant.address %></p>
+      <h2>Reviews</h2>
+        <% if @restaurant.reviews.any? %>
+          <ul class="list-unstyled">
+            <% @restaurant.reviews.each do |review| %>
+              <li class="mb-3">
+                <p><strong>Rating:</strong> <%= review.rating %></p>
+                <p><strong>Content:</strong> <%= review.content %></p>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p>No reviews yet.</p>
+        <% end %>
+      </div>
+       <%= link_to "New Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+    </div>
+    </div>
+
+  </div>
+  <% else %>
+    <p>Restaurant not found.</p>
+  <% end %>
+</div>
